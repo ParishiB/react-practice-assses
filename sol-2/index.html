@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Self Drive Cars</title>
+    <style>
+      img {
+        height: 250px;
+        width: 100%;
+      }
+      .city-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .city-list li {
+        margin-bottom: 5px;
+      }
+
+      .city-car-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .city-car-list li {
+        margin-bottom: 5px;
+      }
+      .white-line {
+        border-bottom: 1px solid white; /* Adjust thickness and style as needed */
+      }
+      .dropdown {
+        text-align: center;
+        display: inline-block;
+        border: 1px solid #ccc;
+        width: 300px;
+        height: 50px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .footer {
+        color: #ccc;
+        background-color: #666666;
+      }
+      .city-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .city-car-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .small-image {
+        width: 300px;
+        height: auto;
+      }
+      scanner-grid h1 {
+        grid-column: 2 / 3;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+    <img src="bg-pic.png" alt="" class="" />
+
+    <h1>Please Select a Location</h1>
+    <div class="dropdown" style="text-align: center">
+      <div class="dropbtn">Select a Location</div>
+      <div class="dropdown-content">
+        <div class="dropdown-content" id="cityDropdown"></div>
+      </div>
+    </div>
+
+    <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="">
+      <div class="about" id="about" onclick="display-about"></div>
+      <div class="company" id="company" onclick="display-company"></div>
+      <div class="careers" id="careers" onclick="display-careers"></div>
+      <div class="help" id="help" onclick="display-help"></div>
+    </div>
+    <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="footer">
+      <h1>CAR RENTALS SERVICES IN INDIA</h1>
+      <ul id="cityList" class="city-list"></ul>
+      <h1>UPCOMING CAR RENTALS AT AIRPORT</h1>
+      <ul id="cityCarList" class="city-car-list"></ul>
+      <div>
+        <h1>INDONESIA</h1>
+        <h3>Self Drive Cars in Jakarta</h3>
+      </div>
+      <div>
+        <h1>EGYPT</h1>
+        <h3>Self Drive Cars in Cairo</h3>
+      </div>
+      <div class="socials">
+        <h1>Let's keep in touch</h1>
+        <img src="social.png" alt="" class="small-image" />
+      </div>
+      <div class="scanner-grid">
+        <div style="font-size: 30px !important">Never Stop Living.</div>
+
+        <div class=""></div>
+      </div>
+      <div class="white-line"></div>
+      <h1 class="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis sint
+        quos nulla nemo qui saepe iusto eius, et placeat doloribus 2023
+      </h1>
+    </div>
+    <script>
+      var cities = [
+        "Bangalore",
+        "Delhi",
+        "Mumbai",
+        "Indore",
+        "Kolkata",
+        "Chandigarh",
+        "Goa",
+        "Agra",
+        "Nagpur",
+      ];
+
+      var car_rental = [
+        "Bangalore",
+        "Delhi",
+        "Mumbai",
+        "Indore",
+        "Kolkata",
+        "Chandigarh",
+        "Goa",
+      ];
+
+      const about1 =
+        "Zoomcar is the leading marketplace for car sharing in emerging markets,with over 20,000 cars on its technology-driven platform across India, Indonesia, and Egypt. Zoomcar empowers host entrepreneurs to safely and easily share their cars to earn additional passive income. Guests in the Zoomcar community enjoy a diverse, affordable selection of cars to unlock memorable driving experiences with friends and family. Founded in 2013 and headquartered in Bengaluru, India, Zoomcar employs over 250 people and operates in over 45 cities across India, Indonesia, and Egypt. Uri Levine, the co-founder of mobility unicorns Waze and Moovit, currently serves as Zoomcar's Chairman of the Board.";
+      const abouth1 = "Want A Specific Car? We've Got It All:";
+      const about2 =
+        "Rent Tata Nexon | Rent Honda Jazz | Rent Hyundai Creta | Rent Maruti Brezza | Rent Mahindra | Rent XUV500 | Rent Hyundai Verna | Rent Maruti Swift | Rent Toyota Innova | Rent Reanult Kwid | Rent Maruti Baleno | Rent Mahindra TUV300| Rent Maruti Swift | Rent Hyundai i20 | Rent Maruti Ertiga | Rent Volkswagen Polo | Rent Hyundai Venue | Rent Hyundai Eon | Rent Maruti S-Cross | Rent Maruti | Rent Dzire | Rent Honda Amaze | Rent Hyundai Verna | Rent Maruti Ciaz | Rent Hyundai Creta | Rent Renault Triber | Rent Maruti S-Cross | Rent Toyota Innova | Rent Mahindra TUV300 | Rent Tata Tiago | Rent Maruti Wagon R | Rent Datson Redi-Go | Rent Maruti Alto | Rent Hyundai Grand i10 | Rent Hyundai Xcent | Rent Maruti S-Presso | Rent Hyundai Santro | Rent Hyundai Verna | Rent Maruti Ignis | Rent Nissan Magnite | Rent Toyota Glanza | Rent Honda City | Rent Maruti Dzire | Rent Datson GO T | Rent Nissan Sunny | Rent Renault Kiger | Rent Hyundai Aura | Rent Renault Duster | Rent Mahindra Bolero | Rent Tata Altroz | Rent Ford EcoSport";
+      const about3 =
+        "If you're looking for cars to rent near you, Zoomcar is your perfect solution! Rent cars in 3 easy steps: Pick your date & time of travel Select the vehicle of your choice from our wide range of cars Book & zoom away";
+      const profile1 = "Find more information about press releases here";
+      const profile2 = "Find more information about investor relations here";
+      const profile3 =
+        "Find more information about Zoomcar leadership team here";
+      ("Find more information about Zoomcar leadership team here");
+      const careers = "Find more information about Zoomcar Careers here";
+      const help = "Find more information about Zoomcar Help and Support here";
+
+      var cityListElement = document.getElementById("cityList");
+      var cityCarList = document.getElementById("cityCarList");
+      var dropdownContent = document.getElementById("cityDropdown");
+      for (var i = 0; i < 4; i++) {
+        cities.forEach(function (city) {
+          var listItem = document.createElement("li");
+          listItem.textContent = "Self Drive Cars in " + city;
+          cityListElement.appendChild(listItem);
+        });
+      }
+
+      for (var i = 0; i < 2; i++) {
+        car_rental.forEach(function (city) {
+          var listItem = document.createElement("li");
+          listItem.textContent = "Self Drive Cars in " + city + "  Airport";
+          cityCarList.appendChild(listItem);
+        });
+      }
+
+      cities.forEach(function (city) {
+        var link = document.createElement("a");
+        link.href = "#" + city; // Set the href attribute to the city name
+        link.textContent = city;
+        dropdownContent.appendChild(link);
+      });
+
+      function displayContent(section) {
+        var content = "";
+        switch (section) {
+          case "about":
+            content = `
+                        <p>${about1}</p>
+                        <h2>${abouth1}</h2>
+                        <p>${about2}</p>
+                        <p>${about3}</p>
+                    `;
+            break;
+          case "company":
+            content = `
+                        <h2>${profile1}</h2>
+                        <h2>${profile2}</h2>
+                        <h2>${profile3}</h2>
+                    `;
+            break;
+          case "careers":
+            content = `
+                        <h2>${careers}</h2>
+                    `;
+            break;
+          case "help":
+            content = `
+                        <h2>${help}</h2>
+                    `;
+            break;
+          default:
+            content = "";
+        }
+        document.getElementById("content").innerHTML = content;
+      }
+    </script>
+  </body>
+</html>
