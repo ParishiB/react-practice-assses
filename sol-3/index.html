@@ -5,26 +5,67 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+      }
+
+      #left,
+      #right,
+      #middle {
+        width: 300px;
+        min-height: 400px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 20px;
+        border: 2px solid black;
+      }
+      .todo {
+        background-color: bisque;
+      }
+      .working {
+        background-color: rgb(53, 231, 83);
+      }
+      .done {
+        background-color: rgb(130, 130, 208);
+      }
+      .list {
+        border: 2px solid black;
+        margin: 15px;
+        padding: 10px;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <div id="left">
-        <h1>To do</h1>
+        <h1 class="todo">To do</h1>
         <div class="list" draggable="true">Item #1</div>
         <div class="list" draggable="true">Item #2</div>
         <div class="list" draggable="true">Item #3</div>
         <div class="list" draggable="true">Item #4</div>
       </div>
       <div id="middle">
-        <h1>Working</h1>
+        <h1 class="working">Working</h1>
         <div class="list" draggable="true">Item #5</div>
         <div class="list" draggable="true">Item #6</div>
         <div class="list" draggable="true">Item #7</div>
         <div class="list" draggable="true">Item #8</div>
       </div>
       <div id="right">
-        <h1>Done</h1>
+        <h1 class="done">Done</h1>
         <div class="list" draggable="true">Item #9</div>
         <div class="list" draggable="true">Item #10</div>
         <div class="list" draggable="true">Item #11</div>
