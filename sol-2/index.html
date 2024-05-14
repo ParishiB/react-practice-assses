@@ -66,7 +66,7 @@
       .footer {
         color: #ccc;
         background-color: #666666;
-        padding: 33px;
+        padding: 70px;
       }
       .city-list {
         display: grid;
@@ -97,6 +97,7 @@
       .middle {
         background-color: #383838;
         color: #ccc;
+        padding: 50px;
       }
 
       .menu {
@@ -121,20 +122,38 @@
       .box-3 {
         display: flex;
       }
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 250px;
+      }
+
+      .header h1 {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
     </style>
   </head>
   <body onload="displayContent('aboutContent')">
-    <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
-    <img src="bg-pic.png" alt="" class="" />
-    <h1 style="text-align: center; padding: 20px">Please Select a Location</h1>
-    <div class="dropdown" style="text-align: center; justify-content: center">
-      <div class="dropbtn">Select a Location</div>
-      <div class="dropdown-content">
-        <div class="dropdown-content" id="cityDropdown"></div>
+    <img src="bg-pic.png" alt="" class="" style="height: 350px" />
+    <div class="header">
+      <h1 style="text-align: center; padding: 20px">
+        Please Select a Location
+      </h1>
+      <div class="dropdown">
+        <div class="dropbtn">Select a Location</div>
+        <div class="dropdown-content">
+          <div class="dropdown-content" id="cityDropdown"></div>
+        </div>
       </div>
     </div>
 
     <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+
     <div class="middle">
       <div class="menu">
         <p class="about" id="about" onclick="displayContent('aboutContent')">
@@ -232,6 +251,7 @@
         Read all Zoomcar Blogs here
       </div>
     </div>
+
     <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
     <div class="footer">
       <h3 style="font-weight: bold; padding-bottom: 25px">
