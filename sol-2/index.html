@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width" />
     <title>Self Drive Cars</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       img {
         height: 250px;
         width: 100%;
@@ -28,8 +33,7 @@
         border-bottom: 1px solid white; /* Adjust thickness and style as needed */
       }
       .dropdown {
-        text-align: center;
-        display: inline-block;
+        justify-content: center;
         border: 1px solid #ccc;
         width: 300px;
         height: 50px;
@@ -62,6 +66,7 @@
       .footer {
         color: #ccc;
         background-color: #666666;
+        padding: 33px;
       }
       .city-list {
         display: grid;
@@ -88,14 +93,41 @@
         grid-column: 2 / 3;
         text-align: center;
       }
+
+      .middle {
+        background-color: #383838;
+        color: #ccc;
+      }
+
+      .menu {
+        display: flex;
+        background-color: #383838;
+        font-size: 22px;
+        flex-direction: row;
+      }
+      .menu p {
+        padding: 10px;
+        cursor: pointer;
+      }
+      .box {
+        display: flex;
+        gap: 15px;
+      }
+      .box-2 {
+        display: flex;
+        gap: 250px;
+        padding-bottom: 35px;
+      }
+      .box-3 {
+        display: flex;
+      }
     </style>
   </head>
-  <body>
+  <body onload="displayContent('aboutContent')">
     <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
     <img src="bg-pic.png" alt="" class="" />
-
-    <h1>Please Select a Location</h1>
-    <div class="dropdown" style="text-align: center">
+    <h1 style="text-align: center; padding: 20px">Please Select a Location</h1>
+    <div class="dropdown" style="text-align: center; justify-content: center">
       <div class="dropbtn">Select a Location</div>
       <div class="dropdown-content">
         <div class="dropdown-content" id="cityDropdown"></div>
@@ -103,40 +135,164 @@
     </div>
 
     <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
-    <div class="">
-      <div class="about" id="about" onclick="display-about"></div>
-      <div class="company" id="company" onclick="display-company"></div>
-      <div class="careers" id="careers" onclick="display-careers"></div>
-      <div class="help" id="help" onclick="display-help"></div>
+    <div class="middle">
+      <div class="menu">
+        <p class="about" id="about" onclick="displayContent('aboutContent')">
+          ABOUT US
+        </p>
+        <p
+          class="company"
+          id="company"
+          onclick="displayContent('companyContent')"
+        >
+          COMPANY PROFILE
+        </p>
+        <p
+          class="careers"
+          id="careers"
+          onclick="displayContent('careersContent')"
+        >
+          CAREERS
+        </p>
+        <p class="help" id="help" onclick="displayContent('helpContent')">
+          HELP & SUPPORT
+        </p>
+        <p class="blogs" id="blogs" onclick="displayContent('blogsContent')">
+          BLOGS
+        </p>
+      </div>
+      <div id="aboutContent" class="content">
+        <p style="padding: 25px; font-size: 16px">
+          Zoomcar is the leading marketplace for car sharing in emerging
+          markets,with over 20,000 cars on its technology-driven platform across
+          India, Indonesia, and Egypt. Zoomcar empowers host entrepreneurs to
+          safely and easily share their cars to earn additional passive income.
+          Guests in the Zoomcar community enjoy a diverse, affordable selection
+          of cars to unlock memorable driving experiences with friends and
+          family. Founded in 2013 and headquartered in Bengaluru, India, Zoomcar
+          employs over 250 people and operates in over 45 cities across India,
+          Indonesia, and Egypt. Uri Levine, the co-founder of mobility unicorns
+          Waze and Moovit, currently serves as Zoomcar's Chairman of the Board
+        </p>
+        <h3 style="padding-left: 25px">
+          Want A Specific Car? We've Got It All:s
+        </h3>
+        <p style="padding: 25px; font-size: 16px">
+          Rent Tata Nexon | Rent Honda Jazz | Rent Hyundai Creta | Rent Maruti
+          Brezza | Rent Mahindra | Rent XUV500 | Rent Hyundai Verna | Rent
+          Maruti Swift | Rent Toyota Innova | Rent Reanult Kwid | Rent Maruti
+          Baleno | Rent Mahindra TUV300| Rent Maruti Swift | Rent Hyundai i20 |
+          Rent Maruti Ertiga | Rent Volkswagen Polo | Rent Hyundai Venue | Rent
+          Hyundai Eon | Rent Maruti S-Cross | Rent Maruti | Rent Dzire | Rent
+          Honda Amaze | Rent Hyundai Verna | Rent Maruti Ciaz | Rent Hyundai
+          Creta | Rent Renault Triber | Rent Maruti S-Cross | Rent Toyota Innova
+          | Rent Mahindra TUV300 | Rent Tata Tiago | Rent Maruti Wagon R | Rent
+          Datson Redi-Go | Rent Maruti Alto | Rent Hyundai Grand i10 | Rent
+          Hyundai Xcent | Rent Maruti S-Presso | Rent Hyundai Santro | Rent
+          Hyundai Verna | Rent Maruti Ignis | Rent Nissan Magnite | Rent Toyota
+          Glanza | Rent Honda City | Rent Maruti Dzire | Rent Datson GO T | Rent
+          Nissan Sunny | Rent Renault Kiger | Rent Hyundai Aura | Rent Renault
+          Duster | Rent Mahindra Bolero | Rent Tata Altroz | Rent Ford EcoSport
+        </p>
+        <p style="padding: 25px; font-size: 16px">
+          If you're looking for cars to rent near you, Zoomcar is your perfect
+          solution! Rent cars in 3 easy steps: Pick your date & time of travel
+          Select the vehicle of your choice from our wide range of cars Book &
+          zoom away
+        </p>
+      </div>
+      <div
+        id="companyContent"
+        class="content"
+        style="padding: 25px; font-size: 26px"
+      >
+        <p>Find more information about press releases here</p>
+        <p>Find more information about investor relations here</p>
+        <p>Find more information about Zoomcar leadership team here</p>
+      </div>
+      <div
+        id="careersContent"
+        class="content"
+        style="padding: 25px; font-size: 26px"
+      >
+        <p>Find more information about Zoomcar Careers here</p>
+      </div>
+      <div
+        id="helpContent"
+        class="content"
+        style="padding: 25px; font-size: 26px"
+      >
+        Find more information about Zoomcar Help and Support here
+      </div>
+      <div
+        id="blogsContent"
+        class="content"
+        style="padding: 25px; font-size: 26px"
+      >
+        Read all Zoomcar Blogs here
+      </div>
     </div>
     <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
     <div class="footer">
-      <h1>CAR RENTALS SERVICES IN INDIA</h1>
+      <h3 style="font-weight: bold; padding-bottom: 25px">
+        CAR RENTALS SERVICES IN INDIA
+      </h3>
       <ul id="cityList" class="city-list"></ul>
-      <h1>UPCOMING CAR RENTALS AT AIRPORT</h1>
+      <h3 style="font-weight: bold; padding-bottom: 25px; padding-top: 18px">
+        UPCOMING CAR RENTALS AT AIRPORT
+      </h3>
       <ul id="cityCarList" class="city-car-list"></ul>
-      <div>
-        <h1>INDONESIA</h1>
-        <h3>Self Drive Cars in Jakarta</h3>
+      <div class="box">
+        <div style="padding-right: 5px; padding-top: 10px">
+          <h3 style="padding-bottom: 10px">INDONESIA</h3>
+          <p>Self Drive Cars in Jakarta</p>
+        </div>
+        <div style="padding-top: 10px">
+          <h3 style="padding-bottom: 10px">EGYPT</h3>
+          <p>Self Drive Cars in Cairo</p>
+        </div>
       </div>
-      <div>
-        <h1>EGYPT</h1>
-        <h3>Self Drive Cars in Cairo</h3>
-      </div>
-      <div class="socials">
-        <h1>Let's keep in touch</h1>
+      <div
+        class="socials"
+        style="padding-right: 10px; padding-top: 20px; padding-bottom: 20px"
+      >
+        <p>Let's keep in touch</p>
         <img src="social.png" alt="" class="small-image" />
       </div>
-      <div class="scanner-grid">
-        <div style="font-size: 30px !important">Never Stop Living.</div>
-
-        <div class=""></div>
+      <div class="box-2">
+        <div class="" style="font-size: 60px; width: 200px">
+          Never Stop Living.
+        </div>
+        <div class="box-3">
+          <div class="">
+            <img
+              src="/sol-2/scanner.png"
+              alt=""
+              style="height: 200px; width: 180px"
+            />
+          </div>
+          <div class="">
+            <h1 class="" style="font-size: 28px; padding: 10px">
+              DOWNLOAD ZOOMCAR APP
+            </h1>
+            <h2 class="" style="font-size: 25px; padding: 10px">
+              We have incredible offers, discounts & much more in our app.
+            </h2>
+            <img
+              src="/sol-2/playstore.png"
+              alt=""
+              style="height: 60px; width: 400px"
+            />
+          </div>
+        </div>
       </div>
       <div class="white-line"></div>
-      <h1 class="">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis sint
-        quos nulla nemo qui saepe iusto eius, et placeat doloribus 2023
-      </h1>
+      <div class="" style="padding-top: 10px">
+        By continuing past this page, you agree to our Terms of Service, Cookie
+        Policy, Privacy Policy and Content Policies. All trademarks are
+        properties of their respective owners. 2012-2023 © Zoomcar™ Ltd. All
+        rights reserved.
+      </div>
     </div>
     <script>
       var cities = [
@@ -161,21 +317,6 @@
         "Goa",
       ];
 
-      const about1 =
-        "Zoomcar is the leading marketplace for car sharing in emerging markets,with over 20,000 cars on its technology-driven platform across India, Indonesia, and Egypt. Zoomcar empowers host entrepreneurs to safely and easily share their cars to earn additional passive income. Guests in the Zoomcar community enjoy a diverse, affordable selection of cars to unlock memorable driving experiences with friends and family. Founded in 2013 and headquartered in Bengaluru, India, Zoomcar employs over 250 people and operates in over 45 cities across India, Indonesia, and Egypt. Uri Levine, the co-founder of mobility unicorns Waze and Moovit, currently serves as Zoomcar's Chairman of the Board.";
-      const abouth1 = "Want A Specific Car? We've Got It All:";
-      const about2 =
-        "Rent Tata Nexon | Rent Honda Jazz | Rent Hyundai Creta | Rent Maruti Brezza | Rent Mahindra | Rent XUV500 | Rent Hyundai Verna | Rent Maruti Swift | Rent Toyota Innova | Rent Reanult Kwid | Rent Maruti Baleno | Rent Mahindra TUV300| Rent Maruti Swift | Rent Hyundai i20 | Rent Maruti Ertiga | Rent Volkswagen Polo | Rent Hyundai Venue | Rent Hyundai Eon | Rent Maruti S-Cross | Rent Maruti | Rent Dzire | Rent Honda Amaze | Rent Hyundai Verna | Rent Maruti Ciaz | Rent Hyundai Creta | Rent Renault Triber | Rent Maruti S-Cross | Rent Toyota Innova | Rent Mahindra TUV300 | Rent Tata Tiago | Rent Maruti Wagon R | Rent Datson Redi-Go | Rent Maruti Alto | Rent Hyundai Grand i10 | Rent Hyundai Xcent | Rent Maruti S-Presso | Rent Hyundai Santro | Rent Hyundai Verna | Rent Maruti Ignis | Rent Nissan Magnite | Rent Toyota Glanza | Rent Honda City | Rent Maruti Dzire | Rent Datson GO T | Rent Nissan Sunny | Rent Renault Kiger | Rent Hyundai Aura | Rent Renault Duster | Rent Mahindra Bolero | Rent Tata Altroz | Rent Ford EcoSport";
-      const about3 =
-        "If you're looking for cars to rent near you, Zoomcar is your perfect solution! Rent cars in 3 easy steps: Pick your date & time of travel Select the vehicle of your choice from our wide range of cars Book & zoom away";
-      const profile1 = "Find more information about press releases here";
-      const profile2 = "Find more information about investor relations here";
-      const profile3 =
-        "Find more information about Zoomcar leadership team here";
-      ("Find more information about Zoomcar leadership team here");
-      const careers = "Find more information about Zoomcar Careers here";
-      const help = "Find more information about Zoomcar Help and Support here";
-
       var cityListElement = document.getElementById("cityList");
       var cityCarList = document.getElementById("cityCarList");
       var dropdownContent = document.getElementById("cityDropdown");
@@ -197,43 +338,21 @@
 
       cities.forEach(function (city) {
         var link = document.createElement("a");
-        link.href = "#" + city; // Set the href attribute to the city name
+        link.href = "#" + city;
         link.textContent = city;
         dropdownContent.appendChild(link);
       });
 
-      function displayContent(section) {
-        var content = "";
-        switch (section) {
-          case "about":
-            content = `
-                        <p>${about1}</p>
-                        <h2>${abouth1}</h2>
-                        <p>${about2}</p>
-                        <p>${about3}</p>
-                    `;
-            break;
-          case "company":
-            content = `
-                        <h2>${profile1}</h2>
-                        <h2>${profile2}</h2>
-                        <h2>${profile3}</h2>
-                    `;
-            break;
-          case "careers":
-            content = `
-                        <h2>${careers}</h2>
-                    `;
-            break;
-          case "help":
-            content = `
-                        <h2>${help}</h2>
-                    `;
-            break;
-          default:
-            content = "";
+      function displayContent(id) {
+        var contentDivs = document.querySelectorAll(".content");
+        contentDivs.forEach(function (div) {
+          div.style.display = "none";
+        });
+
+        var targetDiv = document.getElementById(id);
+        if (targetDiv) {
+          targetDiv.style.display = "block";
         }
-        document.getElementById("content").innerHTML = content;
       }
     </script>
   </body>
