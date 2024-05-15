@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
@@ -51,6 +50,7 @@
     <div class="container">
       <div id="left">
         <h1 class="todo">To do</h1>
+
         <div class="list" draggable="true">Item #1</div>
         <div class="list" draggable="true">Item #2</div>
         <div class="list" draggable="true">Item #3</div>
@@ -58,6 +58,7 @@
       </div>
       <div id="middle">
         <h1 class="working">Working</h1>
+
         <div class="list" draggable="true">Item #5</div>
         <div class="list" draggable="true">Item #6</div>
         <div class="list" draggable="true">Item #7</div>
@@ -71,54 +72,34 @@
         <div class="list" draggable="true">Item #12</div>
       </div>
     </div>
-
     <script>
-      const draggables = document.querySelectorAll(".list");
-      const droppables = document.querySelectorAll(".list");
+      let lists = document.querySelectorAll(".list");
 
-      draggables.forEach((list) => {
-        list.addEventListener("dragstart", () => {
-          list.classList.add("is-dragging");
+      lists.forEach((list) => {
+        list.addEventListener("dragstart", (e) => {
+          e.dataTransfer.setData("text/plain", null);
+          e.target.classList.add("is-dragging");
         });
-        list.addEventListener("dragend", () => {
-          list.classList.remove("is-dragging");
-        });
-      });
 
-      droppables.forEach((zone) => {
-        zone.addEventListener("dragover", (e) => {
+        list.addEventListener("dragend", (e) => {
+          e.target.classList.remove("is-dragging");
+        });
+
+        list.addEventListener("dragover", (e) => {
           e.preventDefault();
 
-          const bottomTask = insertAboveTask(zone, e.clientY);
-          const curTask = document.querySelector(".is-dragging");
+          const draggingElement = document.querySelector(".is-dragging");
+          const boundingRect = list.getBoundingClientRect();
+          const offset = e.clientY - boundingRect.top;
+          const next = offset > boundingRect.height / 2;
 
-          if (!bottomTask) {
-            zone.appendChild(curTask);
-          } else {
-            zone.insertBefore(curTask, bottomTask);
+          if (next && list.nextSibling !== draggingElement) {
+            list.parentNode.insertBefore(draggingElement, list.nextSibling);
+          } else if (!next && list.previousSibling !== draggingElement) {
+            list.parentNode.insertBefore(draggingElement, list);
           }
         });
       });
-
-      const insertAboveTask = (zone, mouseY) => {
-        const els = zone.querySelectorAll(".task:not(.is-dragging)");
-
-        let closestTask = null;
-        let closestOffset = Number.NEGATIVE_INFINITY;
-
-        els.forEach((task) => {
-          const { top } = task.getBoundingClientRect();
-
-          const offset = mouseY - top;
-
-          if (offset < 0 && offset > closestOffset) {
-            closestOffset = offset;
-            closestTask = task;
-          }
-        });
-
-        return closestTask;
-      };
     </script>
   </body>
 </html>
