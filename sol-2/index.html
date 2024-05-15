@@ -35,7 +35,8 @@
       .dropdown {
         justify-content: center;
         border: 1px solid #ccc;
-        width: 300px;
+        width: 500px;
+        border-radius: 3%;
         height: 50px;
       }
 
@@ -136,18 +137,52 @@
         align-items: center;
         justify-content: center;
       }
+
+      .menu p.active {
+        text-decoration: underline;
+        text-decoration-color: white;
+      }
     </style>
   </head>
   <body onload="displayContent('aboutContent')">
     <img src="bg-pic.png" alt="" class="" style="height: 350px" />
     <div class="header">
-      <h1 style="text-align: center; padding: 20px">
+      <h1
+        style="
+          text-align: center;
+          padding: 20px;
+          justify-content: center;
+          align-items: center;
+        "
+      >
         Please Select a Location
       </h1>
       <div class="dropdown">
-        <div class="dropbtn">Select a Location</div>
+        <div
+          class="dropbtn"
+          style="
+            text-align: center;
+
+            font-size: 20px;
+            padding-top: 10px;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          Select a Location
+        </div>
         <div class="dropdown-content">
-          <div class="dropdown-content" id="cityDropdown"></div>
+          <div
+            class="dropdown-content"
+            id="cityDropdown"
+            style="
+              text-align: center;
+              width: 500px;
+              padding-top: 10px;
+              justify-content: center;
+              align-items: center;
+            "
+          ></div>
         </div>
       </div>
     </div>
@@ -155,7 +190,7 @@
     <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
 
     <div class="middle">
-      <div class="menu">
+      <div class="menu" style="padding-left: 10px; gap: 60px">
         <p class="about" id="about" onclick="displayContent('aboutContent')">
           ABOUT US
         </p>
@@ -372,6 +407,16 @@
         var targetDiv = document.getElementById(id);
         if (targetDiv) {
           targetDiv.style.display = "block";
+        }
+
+        const menuItems = document.querySelectorAll(".menu p");
+        menuItems.forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        const clickedItem = document.getElementById(id.replace("Content", ""));
+        if (clickedItem) {
+          clickedItem.classList.add("active");
         }
       }
     </script>
